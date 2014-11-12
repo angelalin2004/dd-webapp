@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>CodePen - A Pen by angelalin2004</title>
+
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+
+</head>
+
+<body>
+
+  <body>
+
+  <div id="column-center"> 
+
+    <div id="ucsd">
+      <img src="https://services.jsatech.com/custom/ucsd/ucsdbanner2.jpg" alt="UCSD" id="ucsd-img">
+    </div>
+
+    <div id="ui">
+      <p id="enter">Enter your remaining dining dollars:</p>
+
+      $<input type="text" id="balance" value="2100" width="10">
+
+      <p id="">Choose your dining plan:</p>
+
+      <select id="diningplan" value="apartment"> <!-- Can't change default -->
+        <option value="apartment">Apartment:  $2450</option>
+        <option value="reshall">Res Hall: $3160</option>
+        <option value="buyup">Buy Up: $3800</option>    
+      </select><br>
+      <p id="weekends">
+        <!-- Ignore weekends?<br> -->
+        <input type="checkbox" id="wknd" value="wknd">Ignore weekends<br>
+      </p>
+
+      <button type="button" id="submit" onclick="myFunction()">Submit</button>
+      <br>
+      <p id="budget"></p>
+      <p id="test"></p>
+    </div>
+  </div>   
+
+</body>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>
