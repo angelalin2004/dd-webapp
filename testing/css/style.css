@@ -1,0 +1,21 @@
+* { margin: 0; padding: 0; }   #wrapper { width: 980px; background: silver; margin: 0 auto; }   #header { background: black; color: white; }   #column-left { background: red; }   #column-center { background: yellow; }   #column-right { background: purple; }   #footer { background: green; }
+
+#column-left { 
+  width: 250px; 
+  float: left; 
+  background: red; 
+}   
+#column-center { 
+  width: 480px; 
+  float: left; 
+  background: yellow; 
+}   
+#column-right { 
+  width: 250px; 
+  float: left; 
+  background: purple; 
+}
+#footer { 
+  clear: both; 
+  background: green; 
+}
