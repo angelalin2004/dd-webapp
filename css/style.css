@@ -10,6 +10,7 @@ body {
   margin-right: auto;
   margin-top: 40px;
   width: 40%; 
+  max-width: 600px;
   border: 8px solid white;
 }
 #ucsd-img {
@@ -38,7 +39,7 @@ body {
 #submit {
   height:23px;
 }
-<!-- Can't change size -->
+/* Can't change size */
 #wknd{
   font-size:50%;
 }
