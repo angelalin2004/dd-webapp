@@ -69,7 +69,7 @@ function myFunction() {
   
   ontrack = onTrack();
     
-  rate = Math.round(ontrack/bal*10000)/100;
+  rate = Math.round((totalbal-bal)/(totalbal-ontrack)*10000)/100;
   perday = Math.round((bal-wispbal-wispbal)/days*100)/100;
   var diff = Math.round((bal - ontrack)*100)/100;
   
