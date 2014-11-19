@@ -67,10 +67,21 @@ function myFunction() {
     days -= holidays_left; 
   }
   
-  ontrack = onTrack();
+  if (document.getElementById("hdh").checked == true) {
+  	ontrack = onTrack();
+     perday = Math.round((bal-wispbal-wispbal)/days*100)/100;
+  }
+  else {
+    /* how many dining dollars you'd spend per day if you were on track */
+    perday = totalbal/totaldays;
+    /* how much $$ you'd have now if you were on track*/
+    ontrack = perday * ( days + winter + spring );
+    ontrack = Math.round(ontrack*100)/100;
+    /* how much you should spend every day for the rest of the year */
+    perday = Math.round(bal/(days + winter + spring)*100)/100;
+  }
     
   rate = Math.round((totalbal-bal)/(totalbal-ontrack)*10000)/100;
-  perday = Math.round((bal-wispbal-wispbal)/days*100)/100;
   var diff = Math.round((bal - ontrack)*100)/100;
   
   /* depending on the rate, we change the tone */
