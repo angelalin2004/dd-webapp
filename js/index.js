@@ -147,6 +147,20 @@ function holidays ( a, b ) {
       holidays_left++;
   }
   a.setDate(a.getDate() + 1);
-  holidays(a,b);
+  holidays(a,b); 
+}
+
+function whatsThis ( ) {
+
+  //document.getElementById("test").innerHTML += document.getElementById("explanation").style.display;
   
+  /* on clicking "what's this", show explanation and change text to "collapse" */
+  if ( document.getElementById("explanation").style.display == "none") {
+  	document.getElementById("explanation").style.display = "inline";
+    document.getElementById("whats_this").innerHTML = "(Collapse)";
+  }
+  else {
+    document.getElementById("explanation").style.display = "none";
+    document.getElementById("whats_this").innerHTML = "(What's this?)";
+  }
 }

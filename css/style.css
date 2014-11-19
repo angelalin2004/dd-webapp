@@ -39,7 +39,10 @@ body {
 #submit {
   height:23px;
 }
-/* Can't change size */
-#wknds{
-  font-size:50%;
+#whats_this{
+  font-size: 70%;
+}
+#explanation{
+  font-size: 90%;
+  display: none;
 }
