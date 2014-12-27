@@ -1,6 +1,6 @@
 /* from the earliest Sunday prior to the day instruction begins to the last day of finals for each quarter */
 var fall = 7*12-1, fall_const = fall;
-var winter = 7*11-1;
+var winter = 7*11-1; winter_const = winter;
 var spring = 7*11-1;
 var totaldays = fall + winter + spring;
 /* defaults to apartment dining plan */
@@ -10,8 +10,10 @@ var wispbal = 799;
 
 
 var Today = new Date();
+if ( Today < new Date("January, 4, 2015") ) {
+  Today = new Date("January, 4, 2015");
+}
 var days = DayDiff(Today), days_const = days;
-var quarter = 0;
 
 /* by default, display the amount of dining dollars you'd have if you're on track*/
 var ontrack = onTrack();
@@ -52,8 +54,8 @@ function myFunction() {
   if ( document.getElementById("no-wknds").checked == true ) {
     wknds_all = 0;
     wknds_left = 0;
-    weekends (new Date("September, 29, 2014"), new Date("December, 19, 2014"));
-    fall -= wknds_all;
+    weekends (new Date("January, 4, 2015"), new Date("March, 20, 2015"));
+    winter -= wknds_all;
     days -= wknds_left;
   }
   if ( document.getElementById("no-holidays").checked == true ) {
@@ -61,24 +63,24 @@ function myFunction() {
     holidays_all = 0;
     holidays_left = 0;
     
-    holidays (new Date("September, 29, 2014"), new Date("December, 19, 2014"));
+    holidays (new Date("January, 4, 2015"), new Date("March, 20, 2015"));
     //document.getElementById("test").innerHTML = holidays_all + "<br>" + holidays_left;
-    fall -= holidays_all;
+    winter -= holidays_all;
     days -= holidays_left; 
   }
   
   if (document.getElementById("hdh").checked == true) {
   	ontrack = onTrack();
-     perday = Math.round((bal-wispbal-wispbal)/days*100)/100;
+     perday = Math.round((bal-wispbal)/days*100)/100;
   }
   else {
     /* how many dining dollars you'd spend per day if you were on track */
     perday = totalbal/totaldays;
     /* how much $$ you'd have now if you were on track*/
-    ontrack = perday * ( days + winter + spring );
+    ontrack = perday * ( days + spring );
     ontrack = Math.round(ontrack*100)/100;
     /* how much you should spend every day for the rest of the year */
-    perday = Math.round(bal/(days + winter + spring)*100)/100;
+    perday = Math.round(bal/(days + spring)*100)/100;
   }
     
   rate = Math.round((totalbal-bal)/(totalbal-ontrack)*10000)/100;
@@ -90,7 +92,7 @@ function myFunction() {
   else
     canshould = "should";
   
-  text = "There are <u>" + days + "</u> days left in the Fall 2014 Quarter.<br>You should have $" + ontrack + " left.<br>If you have $" + bal + " dining dollars left,<br>Your spending rate is <u>" + rate + "</u>%";
+  text = "There are <u>" + days + "</u> days left in the Winter 2015 Quarter.<br>You should have $" + ontrack + " left.<br>If you have $" + bal + " dining dollars left,<br>Your spending rate is <u>" + rate + "</u>%";
   if ( diff > 0 )
     text += "<br>Since you have a surplus of $<u>" + diff + "</u>,";
   else if (diff < 0 ) {
@@ -102,8 +104,8 @@ function myFunction() {
 }
 
 function onTrack ( ) {
-  var ontrack = fallbal/fall*(days);
-  ontrack = Math.round(ontrack*100)/100. + wispbal + wispbal;
+  var ontrack = wispbal/winter*(days);
+  ontrack = Math.round(ontrack*100)/100 + wispbal;
   // resolves adding issue
   ontrack = Math.round(ontrack * 1e12)/1e12;
   return ontrack;
@@ -111,13 +113,14 @@ function onTrack ( ) {
 
 function reset ( ) {
   fall = fall_const;
+  winter = winter_const;
   days = days_const;
 }
 
 function DayDiff(CurrentDate)
 {
   var TYear=CurrentDate.getFullYear();
-  var TDay=new Date("December, 19, 2014");
+  var TDay=new Date("March, 20, 2015");
   TDay.getFullYear(TYear);
   var DayCount=(TDay-CurrentDate)/(1000*60*60*24);
   DayCount=Math.ceil(DayCount); 
@@ -141,7 +144,7 @@ function weekends ( a, b) {
 function holidays ( a, b ) {
   if ( a > b )
     return;
-  if ( a > new Date("November, 26, 2014")  && (a < new Date("November, 29, 2014")) ) {
+  if ( (a.getMonth() == 1 && a.getDate() == 19) || (a.getMonth() == 2 && a.getDate() == 16) ) {
     holidays_all++;
     if ( a > Today )
       holidays_left++;
