@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Dining Dollars Calculator</title>
+    
+    
+    
+    
+        <link rel="stylesheet" href="css/style.css">
 
-<head>
-
-  <meta charset="UTF-8">
-
-  <title>CodePen - Dining Dollars Calculator</title>
-
-    <link rel="stylesheet" href="css/style.css">
-
-</head>
-
-<body>
+    
+    
+    
+  </head>
 
   <body>
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<body>
+  
   <div id="column-center"> 
-
+    
     <div id="ucsd">
       <img src="https://services.jsatech.com/custom/ucsd/ucsdbanner2.jpg" alt="UCSD" id="ucsd-img">
     </div>
-
+  
     <div id="ui">
       <p id="enter">Enter your remaining dining dollars:</p>
 
@@ -34,14 +38,14 @@
         <option value="buyup">Buy Up: $3800</option>    
       </select><br>
       <p id="budget_with">Budget with:<br>
-        <input type="radio" name="budget" id="hdh" checked="true"><a href="http://hdh.ucsd.edu/diningservices/docs/DiningDollarsBudget.pdf">HDH Budget Plan</a><br>
+        <input type="radio" name="budget" id="hdh" checked="true"><a href="http://hdh.ucsd.edu/diningservices/docs/DiningDollarsBudget.pdf" target="_blank">HDH Budget Plan</a><br>
         <input type="radio" name="budget" id="equal">Equal spending per day  
-
-        <a href="javascript:void(0)" onclick="whatsThis();"><span id="whats_this">(What's this?)</span></a><br> 
+        
+        <a href="javascript:void(0)" ><span id="whats_this">(What's this?)</span></a><br> 
         <span id="explanation">The HDH Budget Plan gives you less to spend per day during Fall quarter than during Winter/Spring quarter. This budget plan distribute your dining dollars equally over the remaining days in the schoolyear. You should use this if you've spend more than the HDH Budget allows you for the current quarter.
         </span>
       </p>
-
+      
       <p id="weekends">
         <!-- Ignore weekends?<br> -->
         <input type="checkbox" id="no-wknds" >Ignore weekends<br>
@@ -51,14 +55,19 @@
       <button type="button" id="submit" onclick="myFunction()">Submit</button>
       <br>
       <p id="budget"></p>
+      <p id="comment"><br>This webapp was last updated June 7th, 2015<br>Thanks for 1k views!<br><a href="http://codepen.io/angelalin2004/details/eAyhK" target="_blank">Leave me a comment?</a>
+      </p>
       <p id="test"></p>
     </div>
   </div>   
-
+  
+  
 </body>
+    
+        <script src="js/index.js"></script>
 
-  <script src="js/index.js"></script>
-
-</body>
-
+    
+    
+    
+  </body>
 </html>
